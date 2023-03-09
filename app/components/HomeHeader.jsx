@@ -1,4 +1,9 @@
 import React from "react";
+import { getDefaultHeaderHeight } from "@react-navigation/elements";
+import {
+  useSafeAreaFrame,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
 
 import Search from "assets/search.svg";
 
@@ -7,13 +12,14 @@ import Container from "./styles/Container";
 import Row from "./styles/Row";
 
 const HomeHeader = () => {
+  const frame = useSafeAreaFrame();
+  const insets = useSafeAreaInsets();
+
+  const headerHeight = getDefaultHeaderHeight(frame, false, insets.top);
+
   return (
-    <Container bg="#F2F2F2">
-      <Row
-        justifyContent="space-between"
-        paddingHorizontal={16}
-        marginBottom={16}
-      >
+    <Container bg="#F2F2F2" height={headerHeight} justifyContent="flex-end">
+      <Row justifyContent="space-between" paddingHorizontal={16}>
         <CustomAvatar name="Mayco Faciolo" />
         <Search width={24} height={24} />
       </Row>
