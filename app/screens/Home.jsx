@@ -12,6 +12,15 @@ import Categories from "components/Home/Categories";
 import Card from "components/Card";
 import DeliveryAddressButton from "components/DeliveryAddressButton";
 
+
+import Hand from "assets/hand.svg";
+import Dots from "assets/dots.svg";
+import Pin from "assets/pin.svg";
+import { ScrollView } from "react-native";
+import Restaurants from "components/Home/Restaurants";
+import Categories from "components/Home/Categories";
+import Card from "components/Card";
+
 const Home = () => {
   const navigation = useNavigation();
 
