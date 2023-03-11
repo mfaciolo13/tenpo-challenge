@@ -3,8 +3,6 @@ import styled from "styled-components/native";
 const Box = styled.View`
   background-color: ${(props) => props.bg || "inherited"};
   justify-content: ${(props) => props.justifyContent || "start"};
-  padding-inline: ${(props) =>
-    props.paddingHorizontal ? `${props.paddingHorizontal}px` : "0px"};
   margin-top: ${(props) => (props.marginTop ? `${props.marginTop}px` : "0px")};
   margin-bottom: ${(props) =>
     props.marginBottom ? `${props.marginBottom}px` : "0px"};
@@ -17,6 +15,7 @@ const Box = styled.View`
   border-radius: ${(props) =>
     props.borderRadius ? `${props.borderRadius}px` : "0px"};
   z-index: 10;
+  elevation: 1;
 
   ${(props) => {
     props.flex && `flex: ${props.flex};`;

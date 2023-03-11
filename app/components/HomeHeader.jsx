@@ -8,8 +8,7 @@ import {
 import Search from "assets/search.svg";
 
 import CustomAvatar from "./CustomAvatar";
-import Container from "./styles/Container";
-import Row from "./styles/Row";
+import { Container, Row } from "styles";
 
 const HomeHeader = () => {
   const frame = useSafeAreaFrame();
@@ -19,7 +18,7 @@ const HomeHeader = () => {
 
   return (
     <Container bg="#F2F2F2" height={headerHeight} justifyContent="flex-end">
-      <Row justifyContent="space-between" paddingHorizontal={16}>
+      <Row justifyContent="space-between" paddingLeft={16} paddingRight={16}>
         <CustomAvatar name="Mayco Faciolo" />
         <Search width={24} height={24} />
       </Row>
