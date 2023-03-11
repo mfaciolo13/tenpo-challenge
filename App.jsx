@@ -22,6 +22,9 @@ import {
 
 import Home from "screens/Home";
 import HomeHeader from "components/HomeHeader";
+import Location from "screens/Location";
+import LocationHeader from "components/Location/LocationHeader";
+import Search from "screens/Search";
 
 const Stack = createNativeStackNavigator();
 SplashScreen.preventAutoHideAsync();
@@ -60,12 +63,26 @@ function App() {
 
   return (
     <NavigationContainer onReady={onLayoutRootView}>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Location">
         <Stack.Screen
           name="Home"
           component={Home}
           options={{
             header: () => <HomeHeader />,
+          }}
+        />
+        <Stack.Screen
+          name="Location"
+          component={Location}
+          options={{
+            header: () => <LocationHeader />,
+          }}
+        />
+        <Stack.Screen
+          name="Search"
+          component={Search}
+          options={{
+            header: () => <LocationHeader />,
           }}
         />
       </Stack.Navigator>

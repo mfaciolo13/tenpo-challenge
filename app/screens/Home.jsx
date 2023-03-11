@@ -1,19 +1,20 @@
 import React from "react";
+import { Pressable, ScrollView } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-import Row from "styles/Row";
-import Box from "styles/Box";
-import Text from "styles/Text";
-import Container from "styles/Container";
+import { Box, Container, Row, Text } from "styles";
 
 import Hand from "assets/hand.svg";
 import Dots from "assets/dots.svg";
-import Pin from "assets/pin.svg";
-import { ScrollView } from "react-native";
+
 import Restaurants from "components/Home/Restaurants";
 import Categories from "components/Home/Categories";
 import Card from "components/Card";
+import DeliveryAddressButton from "components/DeliveryAddressButton";
 
 const Home = () => {
+  const navigation = useNavigation();
+
   return (
     <Container bg="white" flex={1}>
       <Box paddingLeft={16} paddingRight={16} bg="#F2F2F2">
@@ -24,6 +25,7 @@ const Home = () => {
               fontWeight={800}
               color="#333333"
               fontFamily="Roboto_900Black"
+              lineHeight={39}
             >
               Tenpo
             </Text>
@@ -34,6 +36,7 @@ const Home = () => {
               fontWeight={800}
               color="#00BAA4"
               fontFamily="Roboto_900Black"
+              lineHeight={39}
             >
               Eats
             </Text>
@@ -44,7 +47,7 @@ const Home = () => {
               bottom={8}
               color="#333333"
               fontFamily="OpenSans_700Bold"
-              letterSpacing={2.4}
+              letterSpacing="2.4px"
               lineHeight={18}
             >
               DELIVER APP
@@ -68,17 +71,9 @@ const Home = () => {
         position="relative"
         bottom={24}
       >
-        <Row alignItems="center" marginBottom={40}>
-          <Pin width={24} height={24} />
-          <Text
-            marginLeft={8}
-            fontSize={16}
-            fontFamily="OpenSans_300Light"
-            color="#008f7e"
-          >
-            Agregar dirección de entrega
-          </Text>
-        </Row>
+        <Pressable onPress={() => navigation.navigate("Location")}>
+          <DeliveryAddressButton />
+        </Pressable>
       </Box>
       <Box
         bg="white"
