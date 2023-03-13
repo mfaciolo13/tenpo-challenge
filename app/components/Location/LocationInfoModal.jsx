@@ -69,11 +69,7 @@ const LocationInfoModal = ({ modalVisible, setModalVisible }) => {
                   >
                     Agregar información de entrega
                   </Text>
-                  <Text
-                    fontFamily="OpenSans_400Regular"
-                    color="#ADADAD"
-                    lineHeight={20}
-                  >
+                  <Text color="#ADADAD" lineHeight={20}>
                     Depto, Oficina, Piso, Block,
                   </Text>
                 </Box>

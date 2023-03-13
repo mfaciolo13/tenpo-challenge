@@ -5,21 +5,10 @@ import { Box, Text } from "styles";
 const ListViewRow = ({ title, description }) => {
   return (
     <Box paddingLeft={8} paddingRight={8}>
-      <Text
-        fontSize={16}
-        fontFamily="OpenSans_400Regular"
-        color="#333"
-        lineHeight={20}
-        marginBottom={4}
-      >
+      <Text fontSize={16} color="#333" lineHeight={20} marginBottom={4}>
         {title}
       </Text>
-      <Text
-        fontSize={12}
-        fontFamily="OpenSans_400Regular"
-        lineHeight={16}
-        color="#ADADAD"
-      >
+      <Text fontSize={12} lineHeight={16} color="#ADADAD">
         {description}
       </Text>
     </Box>

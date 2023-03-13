@@ -7,15 +7,13 @@ import {
 
 import { Container } from "styles";
 
-const LocationHeader = () => {
+const Header = ({ bg }) => {
   const frame = useSafeAreaFrame();
   const insets = useSafeAreaInsets();
 
   const headerHeight = getDefaultHeaderHeight(frame, false, insets.top);
 
-  return (
-    <Container bg="#D4F9F5" height={headerHeight} justifyContent="flex-end" />
-  );
+  return <Container bg={bg} height={headerHeight} justifyContent="flex-end" />;
 };
 
-export default LocationHeader;
+export default Header;

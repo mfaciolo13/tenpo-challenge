@@ -1,5 +1,5 @@
 import * as SplashScreen from "expo-splash-screen";
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
@@ -21,15 +21,16 @@ import {
 } from "@expo-google-fonts/open-sans";
 
 import Home from "screens/Home";
-import HomeHeader from "components/HomeHeader";
+import Header from "components/Header";
 import Location from "screens/Location";
-import LocationHeader from "components/Location/LocationHeader";
 import Search from "screens/Search";
 
 const Stack = createNativeStackNavigator();
 SplashScreen.preventAutoHideAsync();
 
 function App() {
+  const [address, setAddress] = useState(null);
+
   let [fontsLoaded] = useFonts({
     Roboto_300Light,
     Roboto_400Regular,
@@ -67,22 +68,25 @@ function App() {
         <Stack.Screen
           name="Home"
           component={Home}
+          initialParams={{ address }}
           options={{
-            header: () => <HomeHeader />,
+            header: () => <Header bg="#F2F2F2" />,
           }}
         />
         <Stack.Screen
           name="Location"
           component={Location}
+          initialParams={{ setAddress }}
           options={{
-            header: () => <LocationHeader />,
+            header: () => <Header bg="#D4F9F5" />,
           }}
         />
         <Stack.Screen
           name="Search"
           component={Search}
+          initialParams={{ address }}
           options={{
-            header: () => <LocationHeader />,
+            header: () => <Header bg="#D4F9F5" />,
           }}
         />
       </Stack.Navigator>
