@@ -2,30 +2,38 @@ import React from "react";
 import { Pressable, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import { Box, Container, Row, Text } from "styles";
+import { Box, Container, Image, Row, Text } from "styles";
 
 import Hand from "assets/hand.svg";
 import Dots from "assets/dots.svg";
+import Search from "assets/search.svg";
 
-import Restaurants from "components/Home/Restaurants";
-import Categories from "components/Home/Categories";
 import Card from "components/Card";
+import Categories from "components/Home/Categories";
+import Restaurants from "components/Home/Restaurants";
 import DeliveryAddressButton from "components/DeliveryAddressButton";
 
-
-import Hand from "assets/hand.svg";
-import Dots from "assets/dots.svg";
-import Pin from "assets/pin.svg";
-import { ScrollView } from "react-native";
-import Restaurants from "components/Home/Restaurants";
-import Categories from "components/Home/Categories";
-import Card from "components/Card";
-
-const Home = () => {
+const Home = ({ route }) => {
+  const { address } = route.params;
   const navigation = useNavigation();
 
   return (
     <Container bg="white" flex={1}>
+      <Row
+        bg="#F2F2F2"
+        justifyContent="space-between"
+        paddingLeft={16}
+        paddingRight={16}
+      >
+        <Image source={require("assets/avatar.png")} width={40} height={40} />
+        <Pressable
+          onPress={() => {
+            navigation.navigate("Search");
+          }}
+        >
+          <Search width={24} height={24} />
+        </Pressable>
+      </Row>
       <Box paddingLeft={16} paddingRight={16} bg="#F2F2F2">
         <Row justifyContent="space-between" marginTop={16}>
           <Box marginTop={16}>
@@ -39,8 +47,6 @@ const Home = () => {
               Tenpo
             </Text>
             <Text
-              position="relative"
-              bottom={8}
               fontSize={42}
               fontWeight={800}
               color="#00BAA4"
@@ -52,8 +58,6 @@ const Home = () => {
             <Text
               fontSize={12}
               fontWeight={900}
-              position="relative"
-              bottom={8}
               color="#333333"
               fontFamily="OpenSans_700Bold"
               letterSpacing="2.4px"
@@ -81,7 +85,7 @@ const Home = () => {
         bottom={24}
       >
         <Pressable onPress={() => navigation.navigate("Location")}>
-          <DeliveryAddressButton />
+          <DeliveryAddressButton address={address} />
         </Pressable>
       </Box>
       <Box

@@ -83,7 +83,6 @@ const Restaurants = () => {
               <Star width={11} height={11} />
               <Text
                 marginLeft={2}
-                fontFamily="OpenSans_400Regular"
                 color="#333333"
                 fontSize={12}
                 lineHeight={16}

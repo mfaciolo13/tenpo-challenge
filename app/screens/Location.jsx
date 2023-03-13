@@ -13,7 +13,8 @@ import Map from "components/Location/Map";
 import { Box } from "styles";
 import { useFocusEffect } from "@react-navigation/native";
 
-const Location = () => {
+const Location = ({ route }) => {
+  const { setAddress } = route.params;
   const [direction, setDirection] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -29,6 +30,7 @@ const Location = () => {
     const { results } = await res.json();
 
     ref.current.setAddressText(results[1].formatted_address);
+    setAddress(results[1].formatted_address);
 
     return setModalVisible(true);
   };
@@ -104,7 +106,6 @@ const Location = () => {
       <GooglePlacesAutocomplete
         placeholder="Escribe tu dirección"
         ref={ref}
-        co
         styles={{
           container: {
             flex: 0,
@@ -144,8 +145,10 @@ const Location = () => {
             description={structured_formatting?.secondary_text}
           />
         )}
-        onPress={(_, details = null) =>
-          handleSearch(
+        onPress={async (_, details = null) => {
+          setAddress(details.formatted_address);
+
+          return handleSearch(
             details.geometry.location.lat,
             details.geometry.location.lng,
           )
@@ -166,8 +169,8 @@ const Location = () => {
                 "Cancelar",
                 "Reintentar",
               );
-            })
-        }
+            });
+        }}
         query={{
           key: GOOGLE_MAPS_API_KEY,
           language: "es",

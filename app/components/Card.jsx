@@ -49,7 +49,6 @@ const Card = () => {
                 fontSize={12}
                 lineHeight={16}
                 color="#333333"
-                fontFamily="OpenSans_400Regular"
                 marginBottom={4}
               >
                 {favorite.name}
@@ -71,18 +70,12 @@ const Card = () => {
                   lineHeight={16}
                   color="#333333"
                   marginLeft={2}
-                  fontFamily="OpenSans_400Regular"
                   alignSelf="center"
                 >
                   {favorite.rating}
                 </Text>
               </Row>
-              <Text
-                fontSize={12}
-                lineHeight={16}
-                color="#333333"
-                fontFamily="OpenSans_400Regular"
-              >
+              <Text fontSize={12} lineHeight={16} color="#333333">
                 {favorite.time}
               </Text>
             </Box>
